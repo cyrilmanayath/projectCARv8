@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>TRMS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="resources/theme.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
+
+<!--Font Awesome (added because you use icons in your prepend/append)-->
+<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+       <!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: #ffffff !important;} .asteriskField{color: red;}</style>
+</head>
+<body>
+
+
+	<div class="panel panel-default" id="pb">
+		<div class="panel-heading">
+		
+		
+		<div class="row">
+ 		 <div class="col-sm-4" >
+  			<img src="resources/trmslogo.png" id= "logo" width = "40%">	
+  		</div>
+  		<div class="col-sm-6" >
+  			
+  		</div>
+ 		<div class="col-sm-2" >
+ 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="login">Login</button>
+ 		<button type="button" class="btn btn-danger btn-lg" id="logout">Logout</button>
+ 		</div>
+		</div> 
+		</div>
+		<div class="panel-body">
+		
+			<div class="row">
+ 		 		<div class="col-sm-10" id="approvals">
+  				
+  				</div>
+  				<div class="col-sm-2" id="requests">
+  				<button type="button" class="btn btn-success btn-lg" id="nrequest" data-toggle="modal" data-target="#reqModal">+ New Request</button>
+  				</div>
+		</div> 
+			<div class="row">
+ 		 		<div class="col-sm-6" id="approvals">
+  				
+  				</div>
+  				<div class="col-sm-6" id="requests">
+  				</div>
+		</div> 
+		</div>
+		
+		<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+         <form>
+  <div class="form-group">
+    <input type="email" class="form-control" id="uname" placeholder="username">
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" id="pwd" placeholder="password">
+  </div>
+  
+</form> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="loginBtn">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of login modal -->
+  
+  	<!-- Modal -->
+  <div class="modal fade" id="reqModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Request Form</h4>
+        </div>
+        <div class="modal-body">
+
+
+<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-sm-12">
+    <form method="post">
+     <div class="form-group ">
+      <label class="control-label requiredField" for="select">
+       Event Type
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <select class="select form-control" id="select" name="select">
+       <option value="University Courses (80%)">
+        University Courses (80%)
+       </option>
+       <option value="Seminars (60%)">
+        Seminars (60%)
+       </option>
+       <option value="Certification Prep. (75%)">
+        Certification Prep. (75%)
+       </option>
+       <option value="Certification (100%)">
+        Certification (100%)
+       </option>
+       <option value="Technical Training (90%)">
+        Technical Training (90%)
+       </option>
+       <option value="Other (30%)">
+        Other (30%)
+       </option>
+      </select>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="text">
+       Location
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa fa-globe">
+        </i>
+       </div>
+       <input class="form-control" id="text" name="text" placeholder="Street # Street, City, State, Postal Code, Country" type="text"/>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="eventDuration">
+       Duration (Hours)
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa fa-clock-o">
+        </i>
+       </div>
+       <input class="form-control" id="eventDuration" name="eventDuration" type="text"/>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="eventStartDate">
+       Start Date
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa fa-calendar">
+        </i>
+       </div>
+       <input class="form-control" id="eventStartDate" name="eventStartDate" placeholder="MM/DD/YYYY" type="text"/>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="eventEndDate">
+       End Date
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa fa-calendar">
+        </i>
+       </div>
+       <input class="form-control" id="eventEndDate" name="eventEndDate" placeholder="MM/DD/YYYY" type="text"/>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="eventCost">
+       Cost
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa fa-usd">
+        </i>
+       </div>
+       <input class="form-control" id="eventCost" name="eventCost" placeholder="0.00" type="text"/>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="eventDescript">
+       Description
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <textarea class="form-control" cols="40" id="eventDescript" name="eventDescript" placeholder="Enter text" rows="10"></textarea>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="eventJustify">
+       Reason
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <textarea class="form-control" cols="40" id="eventJustify" name="eventJustify" placeholder="Enter text" rows="10"></textarea>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="reqBtn">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of request modal -->
+</div>
+  <script type="text/javascript" src="resources/login.js"></script>
+</body>
+</html>
